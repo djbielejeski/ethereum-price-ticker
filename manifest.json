@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Ethereum Price Ticker | Ether Price Ticker | ETH Price Ticker",
+  "name": "Ethereum Price Ticker | ETH Price Ticker",
   "description": "Displays the current Ethereum (ETH) price.",
   "version": "1.4",
   "browser_action": {
@@ -8,7 +8,5 @@
     "default_popup": "currencySelector.html"
   },
   "background": { "page": "getPrice.html" },
-  "permissions": [
-    "tabs", "storage"
-  ]
+  "permissions": []
 }
