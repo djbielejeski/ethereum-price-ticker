@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+	body{
+		min-width: 180px;
+		padding: 0px 12px 8px;
+	}
+
+	h1, h2, h3, h4{
+		border-bottom: 1px solid #ddd;
+		margin-bottom: 8px;
+		padding-bottom: 4px;
+	}
+
+	.data-well{
+		margin-bottom: 12px;
+		padding: 8px;
+		border: 1px solid #ddd;
+		background-color: #eee;
+		font-size: 120%;
+		display: inline-block;
+	}
+
+	button {
+		background-color: #fff;
+		box-shadow: 1px 1px 1px #bbb;
+		border: 1px solid #aaa;
+		padding: 4px 12px;
+	}
+</style>
+</head>
+<body ng-app="eth-price-ticker" ng-controller="currencySelectorCtrl as currencySelector">
+	<div>
+		<h3>
+			Current ETH Price in USD
+		</h3>
+		<div class="data-well">
+			${{ currencySelector.currentPrice }}
+		</div>
+		<div>
+			<button ng-click="currencySelector.getCurrentPrice()">Refresh Price</button>
+		</div>
+	</div>
+
+	<script src="jquery.js"></script>
+	<script src="angular.js"></script>
+	<script src="app.js"></script>
+	<script src="currencySelector.js"></script>
+</body>
+</html>
