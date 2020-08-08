@@ -30,22 +30,20 @@
 	}
 </style>
 </head>
-<body ng-app="eth-price-ticker" ng-controller="currencySelectorCtrl as currencySelector">
+<body>
 	<div>
 		<h3>
 			Current ETH Price in USD
 		</h3>
-		<div class="data-well">
-			${{ currencySelector.currentPrice }}
+		<div class="data-well" id="current-price">
+
 		</div>
 		<div>
-			<button ng-click="currencySelector.getCurrentPrice()">Refresh Price</button>
+			<button id="refresh-button">Refresh Price</button>
 		</div>
 	</div>
 
-	<script src="jquery.js"></script>
-	<script src="angular.js"></script>
-	<script src="app.js"></script>
-	<script src="currencySelector.js"></script>
+	<script src="getPrice.js"></script>
+	<script src="showPriceInHtml.js"></script>
 </body>
 </html>
