@@ -5,17 +5,8 @@ function getPrice(callback) {
 	fetch('https://poloniex.com/public?command=returnTicker')
 		.then(response => response.json())
 		.then(response => {
-			currentPriceAsString = (Number(response["USDT_ETH"]["last"]))
-				.toLocaleString("en-US", {
-					style: "currency",
-					currency: "USD",
-					maximumFractionDigits: 2,
-					minimumFractionDigits: 2 }
-				)
-				.replace("$", "")
-				.replace(",", "");
-
-			currentPriceAsNumber = Number(currentPriceAsString);
+		    var priceAsNumberWithDecimals = Number(response["USDT_ETH"]["last"]);
+			currentPriceAsNumber = Math.round(priceAsNumberWithDecimals);
 
 			chrome.browserAction.getBadgeText({}, function(text){
 				var previousValue = Number(text);
@@ -36,8 +27,17 @@ function getPrice(callback) {
 
 			chrome.browserAction.setBadgeText({text: currentPriceAsNumber.toString()});
 
+
+			// Display content when clicked.
+            currentPriceAsString = priceAsNumberWithDecimals
+                .toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 2,
+                    minimumFractionDigits: 2 }
+                );
 			if (callback) {
-				callback('$' + currentPriceAsString);
+				callback(currentPriceAsString);
 			}
 		});
 }
