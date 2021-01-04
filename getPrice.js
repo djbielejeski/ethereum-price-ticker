@@ -12,7 +12,8 @@ function getPrice(callback) {
 					maximumFractionDigits: 2,
 					minimumFractionDigits: 2 }
 				)
-				.replace("$", "");
+				.replace("$", "")
+				.replace(",", "");
 
 			currentPriceAsNumber = Number(currentPriceAsString);
 
